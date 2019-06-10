@@ -4,6 +4,8 @@
 * python 2.7
 ## Requerimientos (**Python**)
 * PySocks
+* pycrypto
+* rsa
 * win-inet-pton - (**Si PySocks genera un error**)
 * readline - (**Linux**)
 * pyreadline - (**Windows**)
@@ -15,14 +17,17 @@ Windows:
 
 pip install win-inet-pton
 pip install pyreadline
+PyCrypto en windows se tiene que instalar "manualmente". Puedes descargarlo desde http://www.voidspace.org.uk/python/modules.shtml#pycrypto
 
 Linux:
 
 pip install readline
+pip install pycrypto
 
 Los dos:
 
 pip install PySocks
+pip install rsa
 
 git clone https://github.com/DtxdF/Winp
 cd Winp
