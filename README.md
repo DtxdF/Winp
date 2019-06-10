@@ -27,6 +27,9 @@ pip install PySocks
 git clone https://github.com/DtxdF/Winp
 cd Winp
 python gen.py
+Winp> help
+...
+Winp>
 ```
 
 > **NOTA:** *Solo esta probado en Windows y Linux, por lo tanto solo se indicaran las caracteristicas/requerimientos para estos*. (**Windows 7**, **Kali linux**)
