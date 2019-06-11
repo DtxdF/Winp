@@ -27,7 +27,7 @@ class center_of_command_and_control(cmd.Cmd):
 
     def help_shell(self):
 	
-        print(modify_char.modify("Puede ejecutar tanto un comando local (Destinado a esta maquina) o remoto (Destinado a una terminal remota). Para conexiones remotas use: shell remote <Dirección objetivo> <comandos remotos>"))
+        print(modify_char.modify("Puede ejecutar tanto un comando local (Destinado a esta maquina) o remoto (Destinado a una terminal remota). Para conexiones remotas use: shell remote <DirecciÃ³n objetivo> <comandos remotos>"))
 
     def do_shell(self, args):
 
@@ -70,7 +70,7 @@ class center_of_command_and_control(cmd.Cmd):
 
 		else:
 
-		    print(modify_char.modify('Falta definir la clave pública del destinatario'))
+		    print(modify_char.modify('Falta definir la clave pÃºblica del destinatario'))
 
 	    else:
 
@@ -85,7 +85,7 @@ class center_of_command_and_control(cmd.Cmd):
         print(modify_char.modify("""
 subcomandos:
 
-    - key: Ajusta el valor de la clave pública o privada. Use la siguiente sintaxis: "key <del> o <add> <public <clave>> o <private <clave>>"
+    - key: Ajusta el valor de la clave pÃºblica o privada. Use la siguiente sintaxis: "key <del> o <add> <public <clave>> o <private <clave>>"
         """))
 
     def do_set(self, args):
@@ -156,9 +156,9 @@ subcomandos:
 subcomandos:
 
     - clients: Muestra los clientes que estan conectados
-    - data: Muestra los datos recibidos por los bots. Use la siguiente sintaxis para mostrar los datos de un bot especifico: "data <dirección>"
+    - data: Muestra los datos recibidos por los bots. Use la siguiente sintaxis para mostrar los datos de un bot especifico: "data <direcciÃ³n>"
     - keys: Muestra las llaves de cifrado asimetricas
-    - key: Muestra o la llave privada o la pública configurables. Use la siguiente sintaxis para mostrar la privada o la pública: "key <public> o <private>"
+    - key: Muestra o la llave privada o la pÃºblica configurables. Use la siguiente sintaxis para mostrar la privada o la pÃºblica: "key <public> o <private>"
         """))
 
     def do_show(self, args):
@@ -201,7 +201,7 @@ subcomandos:
 
 		    bot_print = True # Imprimir el mensaje de todas formas, aunque se evaluara el resultado despues
 		    bot_table = []
-		    bot_table.append(['ID', modify_char.modify('Dirección'), 'Longitud', 'Datos'])
+		    bot_table.append(['ID', modify_char.modify('DirecciÃ³n'), 'Longitud', 'Datos'])
 
 		    for index in self.clients_for_interact:
 
@@ -234,7 +234,7 @@ subcomandos:
 					
 			    if not (bot_table_maximum.ok):
 
-				bot_print = quest.quest(modify_char.modify("Los datos no se mostraran correctamente con la resolución actual. ¿Desea mostrarlos con otro formato?"), '1', '0')
+				bot_print = quest.quest(modify_char.modify("Los datos no se mostraran correctamente con la resoluciÃ³n actual. Â¿Desea mostrarlos con otro formato?"), '1', '0')
 
 				bot_print = not bot_print
 
@@ -260,7 +260,7 @@ subcomandos:
 
 				    bot_table_format_id += 1
 
-				    print(modify_char.modify("[%d] - ID: %s; Dirección: %s; Longitud: %d; Mensaje: %s" % (bot_table_format_id, str(bot_table_info[0]), bot_table_info[1], int(bot_table_info[2]), bot_table_info[3])))
+				    print(modify_char.modify("[%d] - ID: %s; DirecciÃ³n: %s; Longitud: %d; Mensaje: %s" % (bot_table_format_id, str(bot_table_info[0]), bot_table_info[1], int(bot_table_info[2]), bot_table_info[3])))
 
 				except StopIteration:
 
@@ -290,11 +290,11 @@ subcomandos:
 
 		    if not (self.db_code['my_public_key'] == None):
 
-		        print(modify_char.modify('Clave Pública: ' + str(self.db_code['my_public_key'])))
+		        print(modify_char.modify('Clave PÃºblica: ' + str(self.db_code['my_public_key'])))
 
 		    else:
 
-		        print(modify_char.modify('Falta definir la clave pública'))
+		        print(modify_char.modify('Falta definir la clave pÃºblica'))
 
 		else:
 
@@ -303,7 +303,7 @@ subcomandos:
 
 	    elif (args.split()[0].lower() == self.show_commands[2]):
 
-		print(modify_char.modify('Clave Pública: ' + str(self.rsa.export_PublicKey())))
+		print(modify_char.modify('Clave PÃºblica: ' + str(self.rsa.export_PublicKey())))
 		print('Clave Privada: ' + str(self.rsa.export_PrivateKey()))
 
 	    else:
@@ -450,9 +450,9 @@ subcomandos:
         if (generate_keys):
 
             print('No se localizaron las claves asimetricas!')
-            print(modify_char.modify('Seleccione el tamaño en BITS de las claves:'))
+            print(modify_char.modify('Seleccione el tamaÃ±o en BITS de las claves:'))
 
-            bitsize = raw_input(modify_char.modify("Tamaño en bits [%d]: " % (keys_settings['bitsize'])))
+            bitsize = raw_input(modify_char.modify("TamaÃ±o en bits [%d]: " % (keys_settings['bitsize'])))
 
             if not (bitsize):
 
@@ -460,7 +460,7 @@ subcomandos:
 
             bitsize = int(bitsize)
 
-            print(modify_char.modify('El tiempo de la generación puede variar dependiendo del tamaño de bits y de las capacidades de su computador!'))
+            print(modify_char.modify('El tiempo de la generaciÃ³n puede variar dependiendo del tamaÃ±o de bits y de las capacidades de su computador!'))
             print('Generando ...')
             
             self.rsa.generate(bitsize)
@@ -522,6 +522,6 @@ class main:
 
             sys.exit(0)
 
-        except OSError as Except:
+        except Exception as Except:
 
             print(str(Except))
