@@ -28,6 +28,7 @@ Los dos:
 
 pip install PySocks
 pip install rsa
+pip install terminaltables
 
 git clone https://github.com/DtxdF/Winp
 cd Winp
