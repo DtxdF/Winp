@@ -7,7 +7,7 @@
 * pycrypto
 * rsa
 * win-inet-pton - (**Si PySocks genera un error**)
-* readline - (**Linux**)
+* readline, gnureadline - (**Linux**)
 * pyreadline - (**Windows**)
 ## Requerimientos (**Opcional**)
 * Tor o un proxy
@@ -22,6 +22,8 @@ PyCrypto en windows se tiene que instalar "manualmente". Puedes descargarlo desd
 Linux:
 
 pip install readline
+o
+pip install gnureadline
 pip install pycrypto
 
 Los dos:
